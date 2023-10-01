@@ -1,5 +1,4 @@
- beskriver här sin
-o Bankprojekt: "The Vault"
+Bankprojekt: "The Vault"
 
 _Carl Ash beskriver här sin oöverträffade grymma kodningsskicklighet och sin plan för att skapa den ultimata banken._
 
