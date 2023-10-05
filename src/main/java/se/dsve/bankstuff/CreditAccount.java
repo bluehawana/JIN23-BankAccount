@@ -12,13 +12,20 @@ public class CreditAccount extends BaseAccount {
     private double creditLimit;
 
     public CreditAccount() {
+        super();
+        this.creditLimit = 10000;
         // Pseudokod
         // - Anropa basklassens konstruktor med super();
-        super();
-        // - Sätt kreditgräns
-    }
+
+        };
+        // - Sätt kreditgränsen till 10000
 
     public double getAvailableCredit() {
+        double availableCredit;
+        availableCredit = this.creditLimit - this.balance;
+        return availableCredit;
+
+
         // Pseudokod
         // - Beräkna tillgänglig kredit
         // - Returnera den tillgängliga krediten
@@ -27,6 +34,12 @@ public class CreditAccount extends BaseAccount {
 
     @Override
     public void deposit(double amount) {
+        if (amount >=0){
+           this.balance += amount;
+        }
+        else{
+            System.out.println("Du kan inte ta ut ett negativt belopp");
+        }
         // Pseudokod
         // - Kolla om beloppet är negativt
         // - Om inte, anropa super.deposit(amount) för att betala av krediten först
@@ -35,10 +48,20 @@ public class CreditAccount extends BaseAccount {
 
     @Override
     public boolean withdraw(double amount) {
-        // Pseudokod
+        if(amount >= 0){
+            if(this.balance + this.creditLimit >= amount){
+                this.balance -= amount;
+                return true;
+            }
+        }
+        else{
+            System.out.println("Du kan inte ta ut ett negativt belopp");
+        }
+            // Pseudokod
         // - Kolla om beloppet är negativt
         // - Kolla om tillräckligt saldo eller kredit finns
         // - Om ja, anropa super.withdraw(amount) och gör uttag, justera kredit/saldo
         // Lägg till en return-sats här
+        return false;
     }
 }

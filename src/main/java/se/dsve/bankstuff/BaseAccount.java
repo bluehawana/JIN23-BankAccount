@@ -13,16 +13,24 @@ public class BaseAccount {
     protected double balance; // Saldo
 
     public BaseAccount() {
+        this.balance = 0;
         // Pseudokod
         // - Sätt saldo till 0
     }
 
     public double getBalance() {
-        // Pseudokod
-        // - Returnera nuvarande saldo
+        return this.balance;// Pseudokod
     }
+    // - Returnera nuvarande saldo
+    // Lägg till en return-sats här
 
     public void deposit(double amount) {
+        if (amount >= 0) {
+            this.balance += amount;
+            System.out.println("Du har satt in " + amount + " kr.");
+        } else {
+            System.out.println("Du kan inte sätta in ett negativt belopp");
+        }
         // Pseudokod
         // - Kolla om beloppet är negativt
         // - Lägg till beloppet i saldo om det inte är negativt
@@ -30,12 +38,27 @@ public class BaseAccount {
     }
 
     public boolean withdraw(double amount) {
-        // Pseudokod
-        // - Kolla om beloppet är negativt
-        // - Kolla om tillräckligt saldo finns
-        // - Om ja, dra av beloppet från saldo
-        // Lägg till return-sats här
+        if (amount >= 0 && this.balance >= amount) {
+            if (this.balance >= amount) {
+                this.balance -= amount;
+                return true;
+            } else if (amount < 0) {
+            }
+                System.out.println("Du kan inte ta ut ett negativt belopp");
+
+            }
+            else {
+                System.out.println("Du har inte tillräckligt med pengar på kontot");
+            }
+
+            // Pseudokod
+            // - Kolla om beloppet är negativt
+            // - Kolla om tillräckligt saldo finns
+            // - Om ja, dra av beloppet från saldo
+            // Lägg till return-sats här
+            return false;
+        }
     }
-}
+
 
 

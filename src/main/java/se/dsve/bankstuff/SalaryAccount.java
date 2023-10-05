@@ -13,6 +13,7 @@ public class SalaryAccount extends BaseAccount {
 
     // Anropar basklassens konstruktor
     public SalaryAccount() {
+        super();
         // Anropa moderklassens konstructor
     }
 
