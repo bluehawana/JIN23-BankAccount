@@ -9,15 +9,15 @@ package se.dsve.bankstuff;
  */
 
 public class CreditAccount extends BaseAccount {
-    private double creditLimit;
+    private final double creditLimit;
 
     public CreditAccount() {
         super();
-        this.creditLimit = 10000;
+        this.creditLimit = 5000;
         // Pseudokod
         // - Anropa basklassens konstruktor med super();
 
-        };
+        }
         // - Sätt kreditgränsen till 10000
 
     public double getAvailableCredit() {
@@ -34,12 +34,15 @@ public class CreditAccount extends BaseAccount {
 
     @Override
     public void deposit(double amount) {
-        if (amount >=0){
-           this.balance += amount;
+        if (amount >= 0){
+            if (this.balance >= amount){
+                this.balance -= amount;
+            }
         }
-        else{
+        else {
             System.out.println("Du kan inte ta ut ett negativt belopp");
         }
+
         // Pseudokod
         // - Kolla om beloppet är negativt
         // - Om inte, anropa super.deposit(amount) för att betala av krediten först
