@@ -38,27 +38,27 @@ public class BaseAccount {
     }
 
     public boolean withdraw(double amount) {
-        if (amount >= 0 && this.balance >= amount) {
-            if (this.balance >= amount) {
-                this.balance -= amount;
-                return true;
-            } else if (amount < 0) {
-            }
-                System.out.println("Du kan inte ta ut ett negativt belopp");
+        if (amount < 0) {
+            System.out.println("Du kan inte ta ut ett negativt belopp");
+            return false;
+        } else if (this.balance >= amount) {
+            this.balance -= amount;
+            return true;
+        } else {
+            System.out.println("Du har inte tillräckligt med pengar på kontot");
+            return false;
+        }
+    }
 
-            }
-            else {
-                System.out.println("Du har inte tillräckligt med pengar på kontot");
-            }
+
 
             // Pseudokod
             // - Kolla om beloppet är negativt
             // - Kolla om tillräckligt saldo finns
             // - Om ja, dra av beloppet från saldo
             // Lägg till return-sats här
-            return false;
         }
-    }
+
 
 
 

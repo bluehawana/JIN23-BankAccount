@@ -17,12 +17,12 @@ public class CreditAccount extends BaseAccount {
         // Pseudokod
         // - Anropa basklassens konstruktor med super();
 
-        }
-        // - Sätt kreditgränsen till 10000
+    }
+    // - Sätt kreditgränsen till 10000
 
     public double getAvailableCredit() {
         double availableCredit;
-        availableCredit = this.creditLimit - this.balance;
+        availableCredit = this.creditLimit + this.balance;
         return availableCredit;
 
 
@@ -34,37 +34,40 @@ public class CreditAccount extends BaseAccount {
 
     @Override
     public void deposit(double amount) {
-        if (amount >= 0){
-            if (this.balance >= amount){
-                this.balance -= amount;
-            }
+        if (amount >= 0) {
+            this.balance += amount;
+            System.out.println("Du har satt in " + amount + " kr.");
+        } else {
+            System.out.println("Du kan inte sätta in ett negativt belopp");
         }
-        else {
-            System.out.println("Du kan inte ta ut ett negativt belopp");
-        }
-
         // Pseudokod
         // - Kolla om beloppet är negativt
         // - Om inte, anropa super.deposit(amount) för att betala av krediten först
         // Lägg till en return-sats här
     }
 
+
+
     @Override
     public boolean withdraw(double amount) {
-        if(amount >= 0){
-            if(this.balance + this.creditLimit >= amount){
-                this.balance -= amount;
-                return true;
-            }
-        }
-        else{
+
+        if (amount <0){
             System.out.println("Du kan inte ta ut ett negativt belopp");
+            return false;
         }
-            // Pseudokod
-        // - Kolla om beloppet är negativt
-        // - Kolla om tillräckligt saldo eller kredit finns
-        // - Om ja, anropa super.withdraw(amount) och gör uttag, justera kredit/saldo
-        // Lägg till en return-sats här
-        return false;
+        if (this.balance - amount >= -this.creditLimit) {
+            this.balance -= amount;
+            return true;
+        } else {
+            System.out.println("Du har inte tillräckligt med pengar på kontot");
+            return false;
+        }
     }
-}
+            // Pseudokod
+            // - Kolla om beloppet är negativt
+            // - Kolla om tillräckligt saldo eller kredit finns
+            // - Om ja, anropa super.withdraw(amount) och gör uttag, justera kredit/saldo
+            // Lägg till en return-sats här}
+
+        }
+
