@@ -42,7 +42,7 @@ Implementering av räntefunktioner och tidsbegränsade transaktioner var svårt 
 
 ### Beskriv om du fått byta lösning och varför i sådana fall
 
-
+Jag har inte behövt byta lösning eftersom den jag valde fungerade bra, men jag har behövt göra några justeringar under projektets gång, till exempel när jag insåg att jag behövde lägga till en ny klass eller metod. Denna CreditAccount kostnadsklass är ett bra exempel på detta.
 
 ## Reflektion & Slutsatser
 
